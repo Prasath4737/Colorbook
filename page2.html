@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 2: Buildings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    svg {
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .color-picker {
+      margin: 10px;
+    }
+    .nav-buttons {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Page 2: Buildings</h1>
+  <p>Select a color and click on the areas to fill!</p>
+
+  <div class="color-picker">
+    <label for="color">Choose a color:</label>
+    <input type="color" id="color" value="#ff0000">
+  </div>
+
+  <svg id="coloringBook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+    <!-- Buildings -->
+    <rect x="100" y="400" width="80" height="200" stroke="black" fill="white" />
+    <rect x="120" y="420" width="20" height="20" stroke="black" fill="white" />
+    <rect x="300" y="350" width="150" height="250" stroke="black" fill="white" />
+    <rect x="340" y="380" width="40" height="40" stroke="black" fill="white" />
+  </svg>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='page1.html'">Previous Page</button>
+    <button onclick="location.href='page3.html'">Next Page</button>
+  </div>
+
+  <script>
+    const svg = document.getElementById('coloringBook');
+    const colorPicker = document.getElementById('color');
+
+    svg.addEventListener('click', (event) => {
+      if (['rect'].includes(event.target.tagName)) {
+        event.target.setAttribute('fill', colorPicker.value);
+      }
+    });
+  </script>
+</body>
+</html>
